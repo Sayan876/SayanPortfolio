@@ -130,8 +130,8 @@ const Hero = () => {
 
               {/* Resume */}
               <a
-                href="/SayanSep_1.pdf"
-                target="_blank"
+                href="#resume"
+                
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400"
               >
