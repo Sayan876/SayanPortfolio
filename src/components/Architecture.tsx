@@ -40,11 +40,24 @@ type TechNode = {
   color: string;
 };
 
+type ArchitectureLayerProps = {
+  number: string;
+  icon: ReactNode;
+  title: string;
+  description: string;
+  color: string;
+  iconAnimation?: "spin" | "pulse";
+};
+
 /* ========================================================= */
 /* Main Component */
 /* ========================================================= */
 
 const Architecture = () => {
+  /* ======================================================= */
+  /* Frontend */
+  /* ======================================================= */
+
   const frontend: TechNode[] = [
     {
       name: "React",
@@ -65,6 +78,10 @@ const Architecture = () => {
       color: "text-purple-500",
     },
   ];
+
+  /* ======================================================= */
+  /* Backend */
+  /* ======================================================= */
 
   const backend: TechNode[] = [
     {
@@ -87,6 +104,10 @@ const Architecture = () => {
     },
   ];
 
+  /* ======================================================= */
+  /* Security */
+  /* ======================================================= */
+
   const security: TechNode[] = [
     {
       name: "JWT",
@@ -108,6 +129,10 @@ const Architecture = () => {
     },
   ];
 
+  /* ======================================================= */
+  /* Data */
+  /* ======================================================= */
+
   const data: TechNode[] = [
     {
       name: "JPA / Hibernate",
@@ -122,6 +147,10 @@ const Architecture = () => {
       color: "text-blue-500",
     },
   ];
+
+  /* ======================================================= */
+  /* Tools */
+  /* ======================================================= */
 
   const tools: TechNode[] = [
     {
@@ -147,12 +176,6 @@ const Architecture = () => {
       description: "API development and testing",
       icon: SiPostman,
       color: "text-orange-500",
-    },
-    {
-      name: "Axios",
-      description: "Frontend HTTP client",
-      icon: SiAxios,
-      color: "text-purple-500",
     },
     {
       name: "Cloudinary",
@@ -184,10 +207,11 @@ const Architecture = () => {
       {/* ================================================= */}
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Left animated glow */}
         <motion.div
           animate={{
             scale: [1, 1.12, 1],
-            opacity: [0.4, 0.7, 0.4],
+            opacity: [0.35, 0.65, 0.35],
           }}
           transition={{
             duration: 7,
@@ -197,10 +221,11 @@ const Architecture = () => {
           className="absolute -left-40 top-32 h-80 w-80 rounded-full bg-blue-600/5 blur-3xl dark:bg-blue-400/5"
         />
 
+        {/* Right animated glow */}
         <motion.div
           animate={{
             scale: [1.1, 1, 1.1],
-            opacity: [0.5, 0.3, 0.5],
+            opacity: [0.45, 0.25, 0.45],
           }}
           transition={{
             duration: 8,
@@ -376,6 +401,7 @@ const Architecture = () => {
 
             <div className="flex items-start gap-4">
 
+              {/* Workflow Icon */}
               <motion.div
                 animate={{
                   rotate: [0, 5, -5, 0],
@@ -405,6 +431,7 @@ const Architecture = () => {
               </div>
             </div>
 
+            {/* Architecture Label */}
             <motion.div
               animate={{
                 x: [0, 4, 0],
@@ -440,15 +467,8 @@ const ArchitectureLayer = ({
   title,
   description,
   color,
-  iconAnimation,
-}: {
-  number: string;
-  icon: ReactNode;
-  title: string;
-  description: string;
-  color: string;
-  iconAnimation: "spin" | "pulse";
-}) => {
+  iconAnimation = "pulse",
+}: ArchitectureLayerProps) => {
   return (
     <motion.div
       initial={{
@@ -466,16 +486,13 @@ const ArchitectureLayer = ({
       transition={{
         duration: 0.5,
       }}
-      animate={{
-        y: [0, -3, 0],
-      }}
       whileHover={{
         y: -7,
         scale: 1.015,
       }}
       className="group relative overflow-hidden rounded-2xl border border-border bg-background/60 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-600/30 hover:shadow-xl hover:shadow-blue-600/5 dark:hover:border-blue-400/30 dark:hover:shadow-blue-400/5 sm:p-6"
     >
-      {/* Animated background glow */}
+      {/* Animated Background Glow */}
 
       <motion.div
         animate={{
@@ -508,29 +525,57 @@ const ArchitectureLayer = ({
           {number}
         </motion.span>
 
-        {/* Icon */}
+        {/* ================================================= */}
+        {/* Icon Container */}
+        {/* ================================================= */}
 
-        <motion.div
-          animate={
-            iconAnimation === "spin"
-              ? {
-                  rotate: [0, 360],
-                  scale: [1, 1.05, 1],
-                }
-              : {
-                  scale: [1, 1.08, 1],
-                  rotate: [0, 2, -2, 0],
-                }
-          }
-          transition={{
-            duration: iconAnimation === "spin" ? 8 : 3.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+        <div
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted ${color}`}
         >
-          {icon}
-        </motion.div>
+          {iconAnimation === "spin" ? (
+
+            /*
+             * IMPORTANT:
+             * Only the React icon rotates.
+             * The rounded container remains completely still.
+             */
+
+            <motion.div
+              animate={{
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {icon}
+            </motion.div>
+
+          ) : (
+
+            /*
+             * Other icons receive a subtle pulse.
+             * Their container remains stationary.
+             */
+
+            <motion.div
+              animate={{
+                scale: [1, 1.08, 1],
+                rotate: [0, 2, -2, 0],
+              }}
+              transition={{
+                duration: 3.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              {icon}
+            </motion.div>
+
+          )}
+        </div>
 
         {/* Content */}
 
@@ -556,7 +601,7 @@ const Connection = () => {
   return (
     <div className="relative flex h-16 justify-center">
 
-      {/* Main line */}
+      {/* Main vertical line */}
 
       <div className="relative h-full w-px overflow-hidden bg-border">
 
@@ -573,10 +618,9 @@ const Connection = () => {
           }}
           className="absolute left-0 top-0 h-1/2 w-full bg-gradient-to-b from-transparent via-blue-500 to-transparent"
         />
-
       </div>
 
-      {/* Moving data packet */}
+      {/* Moving Data Packet */}
 
       <motion.div
         animate={{
@@ -591,7 +635,6 @@ const Connection = () => {
         }}
         className="absolute top-0 h-2.5 w-2.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/60"
       />
-
     </div>
   );
 };
@@ -665,17 +708,13 @@ const TechnologyGroup = ({
                 duration: 0.5,
                 delay: index * 0.06,
               }}
-              animate={{
-                y: [0, -2, 0],
-              }}
               whileHover={{
                 y: -7,
                 scale: 1.025,
               }}
               className="group relative overflow-hidden rounded-2xl border border-border bg-background/70 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-600/30 hover:shadow-xl hover:shadow-blue-600/5 dark:hover:border-blue-400/30 dark:hover:shadow-blue-400/5"
             >
-
-              {/* Hover glow */}
+              {/* Continuous Card Glow */}
 
               <motion.div
                 animate={{
@@ -692,25 +731,30 @@ const TechnologyGroup = ({
 
               <div className="relative flex items-start gap-4">
 
-                {/* Icon */}
+                {/* Icon Container */}
 
-                <motion.div
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Infinity,
-                    delay: index * 0.12,
-                    ease: "easeInOut",
-                  }}
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted/70"
-                >
-                  <Icon
-                    size={27}
-                    className={`${node.color} transition-transform duration-300 group-hover:scale-110`}
-                  />
-                </motion.div>
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted/70">
+
+                  {/* Only icon animates */}
+
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.06, 1],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      repeat: Infinity,
+                      delay: index * 0.12,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <Icon
+                      size={27}
+                      className={`${node.color} transition-transform duration-300 group-hover:scale-110`}
+                    />
+                  </motion.div>
+
+                </div>
 
                 {/* Content */}
 
