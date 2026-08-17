@@ -83,7 +83,7 @@ const Hero = () => {
             >
               Building reliable web applications with{" "}
               <span className="text-blue-600 dark:text-blue-400">
-                Java & Spring Boot.
+                React & Spring Boot.
               </span>
             </motion.h1>
 
