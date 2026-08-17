@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import Projects from '@/components/Projects'
 import ResumeCTA from '@/components/ResumeCTA'
-
+import Architecture from '@/components/Architecture'
 import Skills from '@/components/Skills'
 
 
@@ -15,6 +15,7 @@ const PortfolioBody = () => {
       <Hero/>
       <About/>
       <Experience/>
+      <Architecture/>
       <Skills/>
       <Education/>
       <Projects/>
