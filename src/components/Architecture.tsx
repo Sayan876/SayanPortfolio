@@ -40,6 +40,10 @@ type TechNode = {
   color: string;
 };
 
+/* ========================================================= */
+/* Main Component */
+/* ========================================================= */
+
 const Architecture = () => {
   const frontend: TechNode[] = [
     {
@@ -145,6 +149,12 @@ const Architecture = () => {
       color: "text-orange-500",
     },
     {
+      name: "Axios",
+      description: "Frontend HTTP client",
+      icon: SiAxios,
+      color: "text-purple-500",
+    },
+    {
       name: "Cloudinary",
       description: "Media storage and delivery",
       icon: SiCloudinary,
@@ -169,16 +179,44 @@ const Architecture = () => {
       id="architecture"
       className="relative overflow-hidden bg-background text-foreground transition-colors duration-500"
     >
-      {/* Background decoration */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-40 top-32 h-80 w-80 rounded-full bg-blue-600/5 blur-3xl dark:bg-blue-400/5" />
+      {/* ================================================= */}
+      {/* Background Decoration */}
+      {/* ================================================= */}
 
-        <div className="absolute -right-40 bottom-32 h-80 w-80 rounded-full bg-purple-600/5 blur-3xl dark:bg-purple-400/5" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <motion.div
+          animate={{
+            scale: [1, 1.12, 1],
+            opacity: [0.4, 0.7, 0.4],
+          }}
+          transition={{
+            duration: 7,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -left-40 top-32 h-80 w-80 rounded-full bg-blue-600/5 blur-3xl dark:bg-blue-400/5"
+        />
+
+        <motion.div
+          animate={{
+            scale: [1.1, 1, 1.1],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute -right-40 bottom-32 h-80 w-80 rounded-full bg-purple-600/5 blur-3xl dark:bg-purple-400/5"
+        />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-28 lg:px-10 lg:py-32">
 
+        {/* ================================================= */}
         {/* Heading */}
+        {/* ================================================= */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -215,93 +253,107 @@ const Architecture = () => {
           </p>
         </motion.div>
 
-        {/* Architecture Flow */}
+        {/* ================================================= */}
+        {/* Main Architecture Flow */}
+        {/* ================================================= */}
+
         <div className="mt-16">
 
           <ArchitectureLayer
             number="01"
-            icon={<FaReact size={25} />}
+            icon={<FaReact size={27} />}
             title="Frontend"
-            description="User interface and client-side communication"
+            description="React interfaces communicate with backend services through HTTP APIs."
             color="text-cyan-400"
+            iconAnimation="spin"
           />
 
           <Connection />
 
           <ArchitectureLayer
             number="02"
-            icon={<Server size={24} />}
+            icon={<Server size={25} />}
             title="Backend"
-            description="Business logic and REST API layer"
+            description="Java and Spring Boot handle business logic and REST API operations."
             color="text-green-500"
+            iconAnimation="pulse"
           />
 
           <Connection />
 
           <ArchitectureLayer
             number="03"
-            icon={<ShieldCheck size={24} />}
+            icon={<ShieldCheck size={25} />}
             title="Security"
-            description="Authentication, authorization and access control"
+            description="Spring Security protects application resources using JWT and OAuth2."
             color="text-pink-500"
+            iconAnimation="pulse"
           />
 
           <Connection />
 
           <ArchitectureLayer
             number="04"
-            icon={<Database size={24} />}
+            icon={<Database size={25} />}
             title="Data Layer"
-            description="Persistence and relational data management"
+            description="JPA and Hibernate manage persistence while MySQL stores application data."
             color="text-blue-500"
+            iconAnimation="pulse"
           />
 
           <Connection />
 
           <ArchitectureLayer
             number="05"
-            icon={<Boxes size={24} />}
+            icon={<Boxes size={25} />}
             title="Development & Deployment"
-            description="Build, test, document, version and deploy"
+            description="Docker, Maven, Git, Swagger and Postman support the development lifecycle."
             color="text-orange-500"
+            iconAnimation="pulse"
           />
         </div>
 
-        {/* Detailed Technology Groups */}
-        <div className="mt-14 space-y-14">
+        {/* ================================================= */}
+        {/* Technology Groups */}
+        {/* ================================================= */}
+
+        <div className="mt-16 space-y-16">
 
           <TechnologyGroup
             title="Frontend"
-            description="The client communicates with backend services through HTTP APIs."
+            description="The client-side layer responsible for the user interface and API communication."
             nodes={frontend}
           />
 
           <TechnologyGroup
             title="Backend"
-            description="Java and Spring Boot handle application logic and REST APIs."
+            description="Java and Spring Boot provide the core application and REST API layer."
             nodes={backend}
           />
 
           <TechnologyGroup
             title="Security & Authentication"
-            description="Security mechanisms protect application resources and user sessions."
+            description="Authentication and authorization mechanisms protect application resources."
             nodes={security}
           />
 
           <TechnologyGroup
             title="Persistence"
-            description="JPA and Hibernate connect the application layer with MySQL."
+            description="JPA and Hibernate provide ORM while MySQL handles relational data storage."
             nodes={data}
           />
 
           <TechnologyGroup
             title="Tools & Infrastructure"
-            description="Supporting tools used throughout development, testing and deployment."
+            description="Supporting tools used for development, testing, documentation, version control and deployment."
             nodes={tools}
           />
         </div>
 
+        {/* ================================================= */}
         {/* Architecture Summary */}
+        {/* ================================================= */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -323,9 +375,21 @@ const Architecture = () => {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
 
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600 dark:bg-blue-400/10 dark:text-blue-400">
+
+              <motion.div
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600/10 text-blue-600 dark:bg-blue-400/10 dark:text-blue-400"
+              >
                 <Workflow size={24} />
-              </div>
+              </motion.div>
 
               <div>
                 <h3 className="font-semibold">
@@ -341,13 +405,24 @@ const Architecture = () => {
               </div>
             </div>
 
-            <div className="flex shrink-0 items-center gap-3 text-muted-foreground">
+            <motion.div
+              animate={{
+                x: [0, 4, 0],
+              }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="flex shrink-0 items-center gap-3 text-muted-foreground"
+            >
               <Code2 size={18} />
 
               <span className="text-sm font-medium">
                 Full-stack architecture
               </span>
-            </div>
+            </motion.div>
+
           </div>
         </motion.div>
       </div>
@@ -365,12 +440,14 @@ const ArchitectureLayer = ({
   title,
   description,
   color,
+  iconAnimation,
 }: {
   number: string;
   icon: ReactNode;
   title: string;
   description: string;
   color: string;
+  iconAnimation: "spin" | "pulse";
 }) => {
   return (
     <motion.div
@@ -389,32 +466,80 @@ const ArchitectureLayer = ({
       transition={{
         duration: 0.5,
       }}
-      whileHover={{
-        scale: 1.01,
+      animate={{
+        y: [0, -3, 0],
       }}
-      className="group relative overflow-hidden rounded-2xl border border-border bg-background/60 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-600/30 hover:shadow-lg hover:shadow-blue-600/5 dark:hover:border-blue-400/30 dark:hover:shadow-blue-400/5 sm:p-6"
+      whileHover={{
+        y: -7,
+        scale: 1.015,
+      }}
+      className="group relative overflow-hidden rounded-2xl border border-border bg-background/60 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-600/30 hover:shadow-xl hover:shadow-blue-600/5 dark:hover:border-blue-400/30 dark:hover:shadow-blue-400/5 sm:p-6"
     >
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+      {/* Animated background glow */}
+
+      <motion.div
+        animate={{
+          opacity: [0, 0.5, 0],
+          scale: [0.8, 1.2, 0.8],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="pointer-events-none absolute -right-16 -top-16 h-32 w-32 rounded-full bg-blue-500/10 blur-3xl"
+      />
+
+      <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center">
 
         {/* Number */}
-        <span className="text-xs font-bold tracking-[0.2em] text-muted-foreground">
+
+        <motion.span
+          animate={{
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="text-xs font-bold tracking-[0.2em] text-muted-foreground"
+        >
           {number}
-        </span>
+        </motion.span>
 
         {/* Icon */}
-        <div
-          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted ${color} transition-transform duration-300 group-hover:scale-110`}
+
+        <motion.div
+          animate={
+            iconAnimation === "spin"
+              ? {
+                  rotate: [0, 360],
+                  scale: [1, 1.05, 1],
+                }
+              : {
+                  scale: [1, 1.08, 1],
+                  rotate: [0, 2, -2, 0],
+                }
+          }
+          transition={{
+            duration: iconAnimation === "spin" ? 8 : 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted ${color}`}
         >
           {icon}
-        </div>
+        </motion.div>
 
         {/* Content */}
+
         <div>
           <h3 className="text-lg font-semibold">
             {title}
           </h3>
 
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="mt-1 text-sm leading-6 text-muted-foreground">
             {description}
           </p>
         </div>
@@ -429,39 +554,44 @@ const ArchitectureLayer = ({
 
 const Connection = () => {
   return (
-    <div className="relative flex h-12 justify-center">
+    <div className="relative flex h-16 justify-center">
+
+      {/* Main line */}
 
       <div className="relative h-full w-px overflow-hidden bg-border">
+
+        {/* Continuous glowing flow */}
+
         <motion.div
-          initial={{
-            y: "-100%",
-          }}
-          whileInView={{
-            y: "100%",
-          }}
-          viewport={{
-            once: true,
-            amount: 0.5,
+          animate={{
+            y: ["-120%", "220%"],
           }}
           transition={{
-            duration: 1.2,
+            duration: 1.8,
+            repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute inset-x-0 h-1/2 bg-gradient-to-b from-transparent via-blue-500 to-transparent"
+          className="absolute left-0 top-0 h-1/2 w-full bg-gradient-to-b from-transparent via-blue-500 to-transparent"
         />
+
       </div>
+
+      {/* Moving data packet */}
 
       <motion.div
         animate={{
-          scale: [1, 1.25, 1],
+          y: [0, 48],
+          opacity: [0, 1, 1, 0],
+          scale: [0.7, 1.15, 1, 0.7],
         }}
         transition={{
           duration: 1.8,
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute bottom-0 h-2 w-2 rounded-full bg-blue-500 shadow-lg shadow-blue-500/40"
+        className="absolute top-0 h-2.5 w-2.5 rounded-full bg-blue-500 shadow-lg shadow-blue-500/60"
       />
+
     </div>
   );
 };
@@ -497,17 +627,22 @@ const TechnologyGroup = ({
         duration: 0.6,
       }}
     >
-      <div className="mb-5">
+      {/* Group Heading */}
+
+      <div className="mb-6">
         <h3 className="text-xl font-semibold">
           {title}
         </h3>
 
-        <p className="mt-1 text-sm text-muted-foreground">
+        <p className="mt-1 text-sm leading-6 text-muted-foreground">
           {description}
         </p>
       </div>
 
+      {/* Technology Cards */}
+
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
         {nodes.map((node, index) => {
           const Icon = node.icon;
 
@@ -530,26 +665,55 @@ const TechnologyGroup = ({
                 duration: 0.5,
                 delay: index * 0.06,
               }}
+              animate={{
+                y: [0, -2, 0],
+              }}
               whileHover={{
-                y: -5,
-                scale: 1.02,
+                y: -7,
+                scale: 1.025,
               }}
               className="group relative overflow-hidden rounded-2xl border border-border bg-background/70 p-5 backdrop-blur-sm transition-all duration-300 hover:border-blue-600/30 hover:shadow-xl hover:shadow-blue-600/5 dark:hover:border-blue-400/30 dark:hover:shadow-blue-400/5"
             >
+
               {/* Hover glow */}
-              <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+              <motion.div
+                animate={{
+                  opacity: [0, 0.25, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: index * 0.25,
+                  ease: "easeInOut",
+                }}
+                className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-blue-500/20 blur-2xl"
+              />
 
               <div className="relative flex items-start gap-4">
 
                 {/* Icon */}
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted/70">
+
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    delay: index * 0.12,
+                    ease: "easeInOut",
+                  }}
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-muted/70"
+                >
                   <Icon
                     size={27}
                     className={`${node.color} transition-transform duration-300 group-hover:scale-110`}
                   />
-                </div>
+                </motion.div>
 
                 {/* Content */}
+
                 <div className="min-w-0">
                   <h4 className="text-sm font-semibold">
                     {node.name}
