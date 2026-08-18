@@ -25,16 +25,21 @@ const Hero = () => {
       id="home"
       className="relative overflow-hidden bg-background text-foreground transition-colors duration-500"
     >
-      {/* Background decoration */}
+      {/* ========================================================= */}
+      {/* Background Decoration */}
+      {/* ========================================================= */}
+
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -right-32 -top-32 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl dark:bg-blue-400/10" />
 
         <div className="absolute -bottom-40 -left-32 h-80 w-80 rounded-full bg-blue-600/5 blur-3xl dark:bg-blue-400/5" />
       </div>
 
-      {/* Main content */}
-      <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
+      {/* ========================================================= */}
+      {/* Main Content */}
+      {/* ========================================================= */}
 
+      <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
         <div className="grid w-full items-center gap-14 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px]">
 
           {/* ===================================================== */}
@@ -70,7 +75,7 @@ const Hero = () => {
               I'm Sayan Datta.
             </motion.h2>
 
-            {/* Main heading */}
+            {/* Main Heading */}
             <motion.h1
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
@@ -103,7 +108,10 @@ const Hero = () => {
               systems, and modern React applications.
             </motion.p>
 
+            {/* ===================================================== */}
             {/* Actions */}
+            {/* ===================================================== */}
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -131,7 +139,6 @@ const Hero = () => {
               {/* Resume */}
               <a
                 href="#resume"
-                
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400"
               >
@@ -139,7 +146,10 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            {/* Contact & Social links */}
+            {/* ===================================================== */}
+            {/* Contact & Social Links */}
+            {/* ===================================================== */}
+
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -206,7 +216,10 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            {/* Technology strip */}
+            {/* ===================================================== */}
+            {/* Technology Strip */}
+            {/* ===================================================== */}
+
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -233,7 +246,7 @@ const Hero = () => {
           </div>
 
           {/* ===================================================== */}
-          {/* PROFILE IMAGE */}
+          {/* DESKTOP PROFILE IMAGE */}
           {/* ===================================================== */}
 
           <motion.div
@@ -254,26 +267,82 @@ const Hero = () => {
             }}
             className="relative mx-auto hidden lg:block"
           >
-            {/* Outer glow */}
+            {/* Outer Glow */}
             <div className="absolute inset-0 scale-90 rounded-full bg-blue-600/10 blur-3xl dark:bg-blue-400/10" />
 
-            {/* Image container */}
+            {/* Image Container */}
             <div className="relative mx-auto h-72 w-72 xl:h-80 xl:w-80">
 
-              {/* Subtle rotating ring */}
+              {/* ================================================= */}
+              {/* INNER ORBIT — CLOCKWISE */}
+              {/* ================================================= */}
+
               <motion.div
                 animate={{
                   rotate: 360,
                 }}
                 transition={{
-                  duration: 25,
+                  duration: 18,
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute inset-[-10px] rounded-full border border-dashed border-blue-600/20 dark:border-blue-400/20"
-              />
+                className="absolute inset-[-10px] rounded-full border border-dashed border-blue-600/25 dark:border-blue-400/25"
+              >
+                {/* Blue Orbiting Dot */}
+                <span
+                  className="
+                    absolute
+                    left-1/2
+                    top-[-4px]
+                    h-2.5
+                    w-2.5
+                    -translate-x-1/2
+                    rounded-full
+                    bg-blue-600
+                    shadow-[0_0_10px_rgba(37,99,235,0.8)]
+                    dark:bg-blue-400
+                    dark:shadow-[0_0_10px_rgba(96,165,250,0.8)]
+                  "
+                />
+              </motion.div>
 
-              {/* Image border */}
+              {/* ================================================= */}
+              {/* OUTER ORBIT — ANTI-CLOCKWISE */}
+              {/* ================================================= */}
+
+              <motion.div
+                animate={{
+                  rotate: -360,
+                }}
+                transition={{
+                  duration: 28,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-[-24px] rounded-full border border-green-500/20 dark:border-green-400/20"
+              >
+                {/* Green Orbiting Dot */}
+                <span
+                  className="
+                    absolute
+                    left-1/2
+                    top-[-4px]
+                    h-2.5
+                    w-2.5
+                    -translate-x-1/2
+                    rounded-full
+                    bg-green-500
+                    shadow-[0_0_10px_rgba(34,197,94,0.8)]
+                    dark:bg-green-400
+                    dark:shadow-[0_0_10px_rgba(74,222,128,0.8)]
+                  "
+                />
+              </motion.div>
+
+              {/* ================================================= */}
+              {/* PHOTO */}
+              {/* ================================================= */}
+
               <div className="absolute inset-0 rounded-full border-2 border-blue-600/20 p-2 dark:border-blue-400/20">
                 <div className="h-full w-full overflow-hidden rounded-full bg-muted">
                   <img
@@ -284,7 +353,10 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Small decorative dot */}
+              {/* ================================================= */}
+              {/* SMALL DECORATIVE BLUE DOT */}
+              {/* ================================================= */}
+
               <motion.div
                 animate={{
                   scale: [1, 1.15, 1],
@@ -324,20 +396,76 @@ const Hero = () => {
               {/* Glow */}
               <div className="absolute inset-0 rounded-full bg-blue-600/10 blur-2xl dark:bg-blue-400/10" />
 
-              {/* Rotating ring */}
+              {/* ================================================= */}
+              {/* INNER MOBILE ORBIT — CLOCKWISE */}
+              {/* ================================================= */}
+
               <motion.div
                 animate={{
                   rotate: 360,
                 }}
                 transition={{
-                  duration: 25,
+                  duration: 18,
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute inset-[-7px] rounded-full border border-dashed border-blue-600/20 dark:border-blue-400/20"
-              />
+                className="absolute inset-[-7px] rounded-full border border-dashed border-blue-600/25 dark:border-blue-400/25"
+              >
+                {/* Blue Dot */}
+                <span
+                  className="
+                    absolute
+                    left-1/2
+                    top-[-3px]
+                    h-2
+                    w-2
+                    -translate-x-1/2
+                    rounded-full
+                    bg-blue-600
+                    shadow-[0_0_8px_rgba(37,99,235,0.8)]
+                    dark:bg-blue-400
+                    dark:shadow-[0_0_8px_rgba(96,165,250,0.8)]
+                  "
+                />
+              </motion.div>
 
-              {/* Image */}
+              {/* ================================================= */}
+              {/* OUTER MOBILE ORBIT — ANTI-CLOCKWISE */}
+              {/* ================================================= */}
+
+              <motion.div
+                animate={{
+                  rotate: -360,
+                }}
+                transition={{
+                  duration: 28,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute inset-[-16px] rounded-full border border-green-500/20 dark:border-green-400/20"
+              >
+                {/* Green Dot */}
+                <span
+                  className="
+                    absolute
+                    left-1/2
+                    top-[-3px]
+                    h-2
+                    w-2
+                    -translate-x-1/2
+                    rounded-full
+                    bg-green-500
+                    shadow-[0_0_8px_rgba(34,197,94,0.8)]
+                    dark:bg-green-400
+                    dark:shadow-[0_0_8px_rgba(74,222,128,0.8)]
+                  "
+                />
+              </motion.div>
+
+              {/* ================================================= */}
+              {/* MOBILE PHOTO */}
+              {/* ================================================= */}
+
               <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-blue-600/20 p-1.5 dark:border-blue-400/20">
                 <div className="h-full w-full overflow-hidden rounded-full bg-muted">
                   <img
@@ -352,7 +480,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* ========================================================= */}
+      {/* Scroll Indicator */}
+      {/* ========================================================= */}
+
       <motion.button
         type="button"
         onClick={() => scrollToSection("#about")}
