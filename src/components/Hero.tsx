@@ -288,20 +288,20 @@ const Hero = () => {
                 }}
                 className="absolute inset-[-10px] rounded-full border border-dashed border-blue-600/25 dark:border-blue-400/25"
               >
-                {/* Blue Orbiting Dot */}
+                {/* Small Blue Orbiting Dot */}
                 <span
                   className="
                     absolute
                     left-1/2
-                    top-[-4px]
-                    h-2.5
-                    w-2.5
+                    top-[-3px]
+                    h-1.5
+                    w-1.5
                     -translate-x-1/2
                     rounded-full
                     bg-blue-600
-                    shadow-[0_0_10px_rgba(37,99,235,0.8)]
+                    shadow-[0_0_7px_rgba(37,99,235,0.8)]
                     dark:bg-blue-400
-                    dark:shadow-[0_0_10px_rgba(96,165,250,0.8)]
+                    dark:shadow-[0_0_7px_rgba(96,165,250,0.8)]
                   "
                 />
               </motion.div>
@@ -321,20 +321,20 @@ const Hero = () => {
                 }}
                 className="absolute inset-[-24px] rounded-full border border-green-500/20 dark:border-green-400/20"
               >
-                {/* Green Orbiting Dot */}
+                {/* Small Green Orbiting Dot */}
                 <span
                   className="
                     absolute
                     left-1/2
-                    top-[-4px]
-                    h-2.5
-                    w-2.5
+                    top-[-3px]
+                    h-1.5
+                    w-1.5
                     -translate-x-1/2
                     rounded-full
                     bg-green-500
-                    shadow-[0_0_10px_rgba(34,197,94,0.8)]
+                    shadow-[0_0_7px_rgba(34,197,94,0.8)]
                     dark:bg-green-400
-                    dark:shadow-[0_0_10px_rgba(74,222,128,0.8)]
+                    dark:shadow-[0_0_7px_rgba(74,222,128,0.8)]
                   "
                 />
               </motion.div>
@@ -353,10 +353,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* ================================================= */}
-              {/* SMALL DECORATIVE BLUE DOT */}
-              {/* ================================================= */}
-
+              {/* Small Decorative Blue Dot */}
               <motion.div
                 animate={{
                   scale: [1, 1.15, 1],
@@ -367,7 +364,7 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute bottom-5 right-3 h-4 w-4 rounded-full border-2 border-background bg-blue-600 dark:bg-blue-400"
+                className="absolute bottom-5 right-3 h-3 w-3 rounded-full border-2 border-background bg-blue-600 dark:bg-blue-400"
               />
             </div>
           </motion.div>
@@ -411,20 +408,20 @@ const Hero = () => {
                 }}
                 className="absolute inset-[-7px] rounded-full border border-dashed border-blue-600/25 dark:border-blue-400/25"
               >
-                {/* Blue Dot */}
+                {/* Small Blue Dot */}
                 <span
                   className="
                     absolute
                     left-1/2
-                    top-[-3px]
-                    h-2
-                    w-2
+                    top-[-2px]
+                    h-1.5
+                    w-1.5
                     -translate-x-1/2
                     rounded-full
                     bg-blue-600
-                    shadow-[0_0_8px_rgba(37,99,235,0.8)]
+                    shadow-[0_0_6px_rgba(37,99,235,0.8)]
                     dark:bg-blue-400
-                    dark:shadow-[0_0_8px_rgba(96,165,250,0.8)]
+                    dark:shadow-[0_0_6px_rgba(96,165,250,0.8)]
                   "
                 />
               </motion.div>
@@ -444,20 +441,20 @@ const Hero = () => {
                 }}
                 className="absolute inset-[-16px] rounded-full border border-green-500/20 dark:border-green-400/20"
               >
-                {/* Green Dot */}
+                {/* Small Green Dot */}
                 <span
                   className="
                     absolute
                     left-1/2
-                    top-[-3px]
-                    h-2
-                    w-2
+                    top-[-2px]
+                    h-1.5
+                    w-1.5
                     -translate-x-1/2
                     rounded-full
                     bg-green-500
-                    shadow-[0_0_8px_rgba(34,197,94,0.8)]
+                    shadow-[0_0_6px_rgba(34,197,94,0.8)]
                     dark:bg-green-400
-                    dark:shadow-[0_0_8px_rgba(74,222,128,0.8)]
+                    dark:shadow-[0_0_6px_rgba(74,222,128,0.8)]
                   "
                 />
               </motion.div>
@@ -481,7 +478,7 @@ const Hero = () => {
       </div>
 
       {/* ========================================================= */}
-      {/* Scroll Indicator */}
+      {/* ANIMATED SCROLL INDICATOR */}
       {/* ========================================================= */}
 
       <motion.button
@@ -489,15 +486,31 @@ const Hero = () => {
         onClick={() => scrollToSection("#about")}
         initial={{
           opacity: 0,
+          y: 10,
         }}
         animate={{
           opacity: 1,
+          y: 0,
         }}
         transition={{
           duration: 0.8,
           delay: 1,
+          ease: "easeOut",
         }}
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground sm:flex"
+        className="
+          absolute
+          bottom-6
+          left-1/2
+          flex
+          -translate-x-1/2
+          flex-col
+          items-center
+          gap-2
+          text-muted-foreground
+          transition-colors
+          hover:text-blue-600
+          dark:hover:text-blue-400
+        "
         aria-label="Scroll to About section"
       >
         <span className="text-[10px] font-medium uppercase tracking-[0.2em]">
