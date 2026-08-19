@@ -43,7 +43,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "c2255d65-9aba-4720-8444-cc79ffa211aa",
+          access_key: "8fe5905d-2fcf-46be-8b7a-7f3024b1997a",
 
           name: formData.name,
           email: formData.email,
@@ -51,7 +51,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
           message: formData.message,
 
           from_name: "Portfolio Contact Form",
-          to: "sayandatta9876@gmail.com",
+          to: "sujayrout.cs@gmail.com",
         }),
       });
 
