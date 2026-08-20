@@ -53,7 +53,7 @@ const Experience = () => {
       current: true,
       accent: "blue",
       description:
-        "Promoted to Full-time Executive Engineer, contributing to enterprise application support and technical improvements while continuing to strengthen backend development and software engineering skills.",
+        "Promoted to Full-time Executive Engineer, contributing to enterprise application development and technical improvements while working with Java, Spring            Boot, REST APIs, and SQL to support application functionality, troubleshooting, and backend engineering initiatives.",
       highlights: [
         "Applying Java, Spring Boot, REST APIs, and SQL knowledge to application-related technical work.",
         "Contributing to application troubleshooting, issue resolution, and technical improvements.",
