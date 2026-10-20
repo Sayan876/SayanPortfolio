@@ -1,12 +1,23 @@
+
 import {
+  BrainCircuit,
+  Cloud,
+  Code2,
   Database,
+  FileSearch,
+  GitBranch,
   Globe,
   KeyRound,
   Layers3,
+  LockKeyhole,
+  Search,
   Server,
   ShieldCheck,
+  Workflow,
   Wrench,
+  Zap,
 } from "lucide-react";
+
 import { motion } from "framer-motion";
 
 import {
@@ -22,6 +33,7 @@ import {
   SiSpringboot,
   SiSpringsecurity,
   SiTypescript,
+  SiPostgresql,
   SiMysql,
   SiSwagger,
   SiPostman,
@@ -33,42 +45,42 @@ const Skills = () => {
   const coreSkills = [
     {
       name: "Java",
-      description: "Core Java & object-oriented programming",
+      description: "Core Java, OOP and backend application development",
       icon: FaJava,
       iconClass: "text-[#E76F00]",
       featured: false,
     },
     {
       name: "Spring Boot",
-      description: "REST APIs & backend application development",
+      description: "REST APIs, service layers and backend architecture",
       icon: SiSpringboot,
       iconClass: "text-[#6DB33F]",
       featured: false,
     },
     {
-      name: "Spring Security",
-      description: "Authentication, authorization & application security",
-      icon: SiSpringsecurity,
-      iconClass: "text-[#6DB33F]",
+      name: "Spring AI",
+      description: "Integrating LLMs and building AI-powered applications",
+      icon: BrainCircuit,
+      iconClass: "text-blue-600 dark:text-blue-400",
       featured: false,
     },
     {
       name: "React",
-      description: "Modern component-based frontend development",
+      description: "Component-based UIs, hooks and frontend state management",
       icon: FaReact,
       iconClass: "text-[#61DAFB]",
       featured: true,
     },
     {
       name: "TypeScript",
-      description: "Type-safe frontend application development",
+      description: "Type-safe frontend development and API integration",
       icon: SiTypescript,
       iconClass: "text-[#3178C6]",
       featured: false,
     },
     {
       name: "JavaScript",
-      description: "Modern JavaScript & web application development",
+      description: "Modern JavaScript and asynchronous programming",
       icon: FaJs,
       iconClass: "text-[#F7DF1E]",
       featured: false,
@@ -77,40 +89,76 @@ const Skills = () => {
 
   const backendSkills = [
     {
-      name: "REST APIs",
-      description: "Designing and integrating RESTful services",
+      name: "REST API Development",
+      description: "Building and integrating HTTP APIs with Spring Boot",
       icon: Globe,
       iconClass: "text-blue-600 dark:text-blue-400",
     },
     {
+      name: "RAG Pipelines",
+      description: "Retrieving document context to ground LLM responses",
+      icon: Workflow,
+      iconClass: "text-[#8B5CF6]",
+    },
+    {
+      name: "Embeddings & Vector Search",
+      description: "Semantic retrieval using vector representations",
+      icon: Search,
+      iconClass: "text-[#0D9488]",
+    },
+    {
+      name: "PostgreSQL & pgvector",
+      description: "Relational data and vector similarity search",
+      icon: SiPostgresql,
+      iconClass: "text-[#4169E1]",
+    },
+    {
+      name: "Gemini API Integration",
+      description: "Connecting Google Gemini to AI-powered workflows",
+      icon: BrainCircuit,
+      iconClass: "text-[#4285F4]",
+    },
+    {
+      name: "Streaming Responses",
+      description: "Delivering incremental AI responses to the frontend",
+      icon: Zap,
+      iconClass: "text-[#EAB308]",
+    },
+    {
+      name: "Spring Security & JWT",
+      description: "Authentication, authorization and protected endpoints",
+      icon: ShieldCheck,
+      iconClass: "text-[#6DB33F]",
+    },
+    {
       name: "JPA / Hibernate",
-      description: "ORM and persistent data management",
+      description: "ORM, entity relationships and database persistence",
       icon: Database,
       iconClass: "text-[#59666C]",
     },
     {
-      name: "JWT",
-      description: "Token-based authentication and access control",
-      icon: KeyRound,
-      iconClass: "text-[#D63AFF]",
-    },
-    {
       name: "OAuth2",
-      description: "Secure third-party authentication flows",
-      icon: ShieldCheck,
+      description: "Understanding and implementing delegated authentication",
+      icon: KeyRound,
       iconClass: "text-[#3B82F6]",
     },
     {
+      name: "Document Processing",
+      description: "Building document ingestion and retrieval workflows",
+      icon: FileSearch,
+      iconClass: "text-[#D97706]",
+    },
+    {
       name: "MySQL",
-      description: "Relational database design and SQL",
-      icon: SiMysql,
+      description: "Relational database design, queries and SQL",
+      icon: Database,
       iconClass: "text-[#4479A1]",
     },
     {
-      name: "JDBC",
-      description: "Java database connectivity",
-      icon: Database,
-      iconClass: "text-[#E76F00]",
+      name: "API Security",
+      description: "JWT-protected requests, access control and CORS",
+      icon: LockKeyhole,
+      iconClass: "text-[#8B5CF6]",
     },
   ];
 
@@ -155,6 +203,11 @@ const Skills = () => {
       icon: SiCloudinary,
       iconClass: "text-[#3448C5]",
     },
+    {
+      name: "Vercel & Render",
+      icon: Cloud,
+      iconClass: "text-blue-600 dark:text-blue-400",
+    },
   ];
 
   return (
@@ -170,7 +223,6 @@ const Skills = () => {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-28 lg:px-10 lg:py-32">
-
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -193,9 +245,10 @@ const Skills = () => {
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-            A backend-focused stack centered around Java and Spring Boot,
-            complemented by modern frontend, database, security, and
-            development tooling.
+            A backend-focused full-stack skill set spanning Java,
+            Spring Boot, secure APIs, modern frontend development
+            and AI-powered applications using retrieval-augmented
+            generation and vector search.
           </p>
         </motion.div>
 
@@ -266,7 +319,7 @@ const Skills = () => {
           })}
         </div>
 
-        {/* Backend & Security */}
+        {/* Backend, AI & Security */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -286,11 +339,11 @@ const Skills = () => {
 
             <div>
               <h3 className="font-semibold">
-                Backend & Security
+                Backend, AI & Security
               </h3>
 
               <p className="text-sm text-muted-foreground">
-                APIs, databases and secure application architecture
+                APIs, retrieval pipelines, databases and secure architecture
               </p>
             </div>
           </div>
@@ -316,7 +369,7 @@ const Skills = () => {
                   }}
                   transition={{
                     duration: 0.5,
-                    delay: index * 0.06,
+                    delay: index * 0.04,
                   }}
                   className="group flex items-start gap-4 rounded-xl border border-border bg-background/50 p-5 transition-all duration-300 hover:border-blue-600/30 hover:bg-blue-600/[0.02] dark:hover:border-blue-400/30"
                 >
@@ -369,11 +422,11 @@ const Skills = () => {
 
             <div>
               <h3 className="font-semibold">
-                Development Tools
+                Development & Deployment Tools
               </h3>
 
               <p className="text-sm text-muted-foreground">
-                Tools I use throughout the development workflow
+                Tools used for development, API testing and deployment
               </p>
             </div>
           </div>
@@ -436,8 +489,8 @@ const Skills = () => {
           <Layers3 size={17} />
 
           <span>
-            Focused on building maintainable, secure and production-ready
-            applications.
+            Focused on building maintainable backend systems,
+            secure APIs and practical AI-powered applications.
           </span>
         </motion.div>
       </div>
