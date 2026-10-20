@@ -9,7 +9,7 @@ import {
   Layers3,
   LockKeyhole,
   MessageSquareText,
-  Play,
+  
   Search,
   ShieldCheck,
   Video,
