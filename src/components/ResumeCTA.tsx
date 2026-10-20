@@ -7,7 +7,7 @@ import {
 
 import { motion } from "framer-motion";
 
-import resume from "../assets/SayanAug_19.pdf";
+import resume from "../assets/SayanOct20.pdf";
 
 const ResumeCTA = () => {
   return (
