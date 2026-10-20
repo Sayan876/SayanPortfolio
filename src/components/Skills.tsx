@@ -2,10 +2,10 @@
 import {
   BrainCircuit,
   Cloud,
-  Code2,
+  
   Database,
   FileSearch,
-  GitBranch,
+  
   Globe,
   KeyRound,
   Layers3,
@@ -31,10 +31,10 @@ import {
 
 import {
   SiSpringboot,
-  SiSpringsecurity,
+  
   SiTypescript,
   SiPostgresql,
-  SiMysql,
+  
   SiSwagger,
   SiPostman,
   SiAxios,
